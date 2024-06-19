@@ -40,11 +40,18 @@
             label = "MACRO_A_UMLAUT";
         };
 
-        macro_hallo: new_macro {
+        macro_o_umlaut: new_macro {
             compatible = "zmk,behavior-macro";
             #binding-cells = <0>;
             bindings = <&kp LA(U) &kp O>;
             label = "NEW_MACRO";
+        };
+
+        macro_A_UMLAUT: macro_A_UMLAUT {
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <0>;
+            bindings = <&kp LA(U) &kp LS(A)>;
+            label = "MACRO_A_UMLAUT";
         };
     };
 
