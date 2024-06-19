@@ -39,6 +39,13 @@
             bindings = <&kp LA(U) &kp A>;
             label = "MACRO_A_UMLAUT";
         };
+
+        macro_hallo: new_macro {
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <0>;
+            bindings = <&none &kp H &kp A &kp L &kp L &kp O>;
+            label = "NEW_MACRO";
+        };
     };
 
     keymap {
