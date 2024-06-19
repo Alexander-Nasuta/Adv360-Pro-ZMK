@@ -46,6 +46,13 @@
             bindings = <&kp LA(U) &kp O>;
             label = "NEW_MACRO";
         };
+
+        MACRO_A_UMLAUT_CAPITAL: MACRO_A_UMLAUT_CAPITAL {
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <0>;
+            bindings = <&kp LA(U) &kp LS(A)>;
+            label = "MACRO_A_UMLAUT_CAPITAL";
+        };
     };
 
     keymap {
