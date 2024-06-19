@@ -39,6 +39,12 @@
             bindings = <&kp LA(U) &kp A>;
             label = "MACRO_A_UMLAUT";
         };
+        macro_a_umlaut: macro_o_umlaut {
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <0>;
+            bindings = <&kp LA(U) &kp O>;
+            label = "MACRO_A_UMLAUT";
+        };
     };
 
     keymap {
