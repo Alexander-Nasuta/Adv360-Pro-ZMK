@@ -53,6 +53,34 @@
             bindings = <&kp LA(U) &kp LS(A)>;
             label = "MACRO_A_UMLAUT_CAPITAL";
         };
+
+        macro_u_umlaut: macro_u_umlaut {
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <0>;
+            bindings = <&kp LA(U) &kp U>;
+            label = "MACRO_U_UMLAUT";
+        };
+
+        MACRO_O_UMLAUT_CAPITAL: MACRO_O_UMLAUT_CAPITAL {
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <0>;
+            bindings = <&kp LA(U) &kp LS(O)>;
+            label = "MACRO_O_UMLAUT_CAPITAL";
+        };
+
+        MACRO_U_UMLAUT_CAPITAL: MACRO_U_UMLAUT_CAPITAL {
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <0>;
+            bindings = <&kp LA(U) &kp LS(U)>;
+            label = "MACRO_U_UMLAUT_CAPITAL";
+        };
+
+        tmux_leader: tmux_leader {
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <0>;
+            bindings = <&kp LC(B)>;
+            label = "TMUX_LEADER";
+        };
     };
 
     keymap {
