@@ -153,7 +153,7 @@
 
         GERMAN_SYMBOLS {
             bindings = <
-&trans  &trans            &trans               &trans               &trans                &trans            &trans                                      &trans  &trans           &trans                   &trans                    &trans              &trans             &trans
+&trans  &trans            &trans               &kp DOLLAR           &trans                &trans            &trans                                      &trans  &trans           &trans                   &kp N0                    &trans              &trans             &trans
 &trans  &kp DE_AT         &kp N0               &kp DE_ASTERISK      &kp DE_SLASH          &kp DE_BACKSLASH  &trans                                      &trans  &kp DE_QUESTION  &kp DE_MINUS             &kp DE_PLUS               &kp DE_DOLLAR       &kp DE_CARET       &kp DE_EURO
 &trans  &kp DE_PIPE       &kp DE_AMPERSAND     &kp DE_EXCLAMATION   &kp DE_EQUAL          &kp DE_HASH       &trans  &trans  &trans      &trans  &trans  &trans  &kp DE_PERCENT   &kp DE_LEFT_PARENTHESIS  &kp DE_RIGHT_PARENTHESIS  &kp DE_LEFT_BRACE   &kp DE_COLON       &kp DE_SEMICOLON
 &trans  &kp DE_LESS_THAN  &kp DE_GREATER_THAN  &kp DE_SINGLE_QUOTE  &kp DE_DOUBLE_QUOTES  &kp DE_GRAVE                      &trans      &trans                  &kp DE_TILDE     &kp DE_LEFT_BRACKET      &kp RIGHT_BRACKET         &kp DE_RIGHT_BRACE  &kp DE_UNDERSCORE  &trans
