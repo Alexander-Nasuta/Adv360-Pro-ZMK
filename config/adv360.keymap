@@ -190,7 +190,7 @@
 &nvim_i_bol         &kp AT     &kp N0            &kp ASTRK       &kp SLASH          &kp BACKSLASH  &none                                       &none   &kp QUESTION  &kp MINUS             &kp PLUS               &kp DOLLAR       &kp CARET  &nvim_i_eol
 &trans              &kp PIPE   &kp AMPERSAND     &kp EXCL        &kp EQUAL          &kp HASH       &none   &trans  &trans      &trans  &trans  &none   &kp PERCENT   &kp LEFT_PARENTHESIS  &kp RIGHT_PARENTHESIS  &kp LEFT_BRACE   &kp COLON  &kp SEMICOLON
 &trans              &kp LT     &kp GREATER_THAN  &kp SQT         &kp DOUBLE_QUOTES  &kp GRAVE                      &trans      &trans                  &kp TILDE     &kp LEFT_BRACKET      &kp RIGHT_BRACKET      &kp RIGHT_BRACE  &kp UNDER  &trans
-&trans              &mkp MCLK  &trans            &kp LEFT_ARROW  &kp RIGHT_ARROW                   &trans  &trans  &trans      &trans  &trans  &trans                &kp UP_ARROW          &kp DOWN_ARROW         &trans           &trans     &trans
+&trans              &mkp MCLK  &trans            &kp LEFT_ARROW  &kp RIGHT_ARROW                   &trans  &trans  &trans      &trans  &trans  &trans                &kp UP_ARROW          &kp DOWN_ARROW         &trans           &mkp RCLK  &trans
             >;
         };
 
