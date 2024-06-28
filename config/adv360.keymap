@@ -144,6 +144,20 @@
             bindings = <&none &kp LS(C) &kp LS(U) &kp LS(D) &kp LS(A) &kp UNDER &kp LS(V) &kp LS(I) &kp LS(S) &kp LS(I) &kp LS(B) &kp LS(L) &kp LS(E) &kp UNDER &kp LS(D) &kp LS(E) &kp LS(V) &kp LS(I) &kp LS(C) &kp LS(E) &kp LS(S) &kp EQUAL &kp N1>;
             label = "CUDA_SECOND_GPU";
         };
+
+        nvim_i_eol: nvim_i_eol {
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <0>;
+            bindings = <&kp ESCAPE &kp LS(A)>;
+            label = "NVIM_I_EOL";
+        };
+
+        nvim_i_bol: nvim_i_bol {
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <0>;
+            bindings = <&kp LS(ESCAPE) &kp N0 &kp I>;
+            label = "NVIM_I_BOL";
+        };
     };
 
     keymap {
@@ -171,7 +185,7 @@
 
         symbols_fn {
             bindings = <
-&kp F1  &kp F2    &kp F3            &kp F4          &kp F5             &kp F6         &trans                                      &trans  &kp F7        &kp F8                &kp F9                 &kp F10          &kp F11    &kp F12
+&kp F1  &kp F2    &kp F3            &kp DOLLAR      &nvim_i_bol        &kp F6         &trans                                      &trans  &kp F7        &nvim_i_eol           &kp N0                 &kp F10          &kp F11    &kp F12
 &trans  &kp AT    &kp N0            &kp ASTRK       &kp SLASH          &kp BACKSLASH  &none                                       &none   &kp QUESTION  &kp MINUS             &kp PLUS               &kp DOLLAR       &kp CARET  &trans
 &trans  &kp PIPE  &kp AMPERSAND     &kp EXCL        &kp EQUAL          &kp HASH       &none   &trans  &trans      &trans  &trans  &none   &kp PERCENT   &kp LEFT_PARENTHESIS  &kp RIGHT_PARENTHESIS  &kp LEFT_BRACE   &kp COLON  &kp SEMICOLON
 &trans  &kp LT    &kp GREATER_THAN  &kp SQT         &kp DOUBLE_QUOTES  &kp GRAVE                      &trans      &trans                  &kp TILDE     &kp LEFT_BRACKET      &kp RIGHT_BRACKET      &kp RIGHT_BRACE  &kp UNDER  &trans
@@ -181,21 +195,21 @@
 
         GERMAN_SYMBOLS {
             bindings = <
-&trans  &trans            &trans               &kp DOLLAR           &trans                &trans            &trans                                      &trans  &trans           &trans                   &kp N0                    &trans              &trans             &trans
+&trans  &trans            &trans               &kp DE_DOLLAR        &nvim_i_bol           &trans            &trans                                      &trans  &trans           &nvim_i_eol              &kp N0                    &trans              &trans             &trans
 &trans  &kp DE_AT         &kp N0               &kp DE_ASTERISK      &kp DE_SLASH          &kp DE_BACKSLASH  &trans                                      &trans  &kp DE_QUESTION  &kp DE_MINUS             &kp DE_PLUS               &kp DE_DOLLAR       &kp DE_CARET       &kp DE_EURO
 &trans  &kp DE_PIPE       &kp DE_AMPERSAND     &kp DE_EXCLAMATION   &kp DE_EQUAL          &kp DE_HASH       &trans  &trans  &trans      &trans  &trans  &trans  &kp DE_PERCENT   &kp DE_LEFT_PARENTHESIS  &kp DE_RIGHT_PARENTHESIS  &kp DE_LEFT_BRACE   &kp DE_COLON       &kp DE_SEMICOLON
-&trans  &kp DE_LESS_THAN  &kp DE_GREATER_THAN  &kp DE_SINGLE_QUOTE  &kp DE_DOUBLE_QUOTES  &kp DE_GRAVE                      &trans      &trans                  &kp DE_TILDE     &kp DE_LEFT_BRACKET      &kp RIGHT_BRACKET         &kp DE_RIGHT_BRACE  &kp DE_UNDERSCORE  &trans
+&trans  &kp DE_LESS_THAN  &kp DE_GREATER_THAN  &kp DE_SINGLE_QUOTE  &kp DE_DOUBLE_QUOTES  &kp DE_GRAVE                      &trans      &trans                  &kp DE_TILDE     &kp DE_LEFT_BRACKET      &kp DE_RIGHT_BRACKET      &kp DE_RIGHT_BRACE  &kp DE_UNDERSCORE  &trans
 &trans  &trans            &trans               &trans               &trans                                  &trans  &trans  &trans      &trans  &trans  &trans                   &trans                   &trans                    &trans              &trans             &trans
             >;
         };
 
         numpad {
             bindings = <
-&trans  &cuda_second_gpu  &trans  &trans                  &trans  &trans                       &trans                                                               &trans  &trans  &trans        &trans        &trans  &trans     &trans
-&trans  &trans            &trans  &trans                  &trans  &tmux_kill_session_terminal  &tmux_kill_sessions_within_tmux                                      &trans  &trans  &kp N7        &kp N8        &kp N9  &trans     &kp BACKSPACE
-&trans  &trans            &trans  &trans                  &trans  &trans                       &trans                           &trans  &trans      &trans  &trans  &trans  &trans  &kp NUMBER_4  &kp NUMBER_5  &kp N6  &trans     &trans
-&trans  &trans            &trans  &conda_create_env_p311  &trans  &trans                                                                &trans      &trans                  &trans  &kp N1        &kp N2        &kp N3  &kp UNDER  &kp DE_UNDERSCORE
-&trans  &trans            &trans  &trans                  &trans                               &trans                           &trans  &trans      &trans  &trans  &trans          &kp N0        &kp N0        &kp N0  &trans     &trans
+&trans  &cuda_second_gpu  &trans  &trans                  &trans  &trans                       &trans                                                               &trans  &trans         &trans        &trans        &trans  &trans     &trans
+&trans  &trans            &trans  &trans                  &trans  &tmux_kill_session_terminal  &tmux_kill_sessions_within_tmux                                      &trans  &trans         &kp N7        &kp N8        &kp N9  &trans     &kp BACKSPACE
+&trans  &trans            &trans  &trans                  &trans  &trans                       &trans                           &trans  &trans      &trans  &trans  &trans  &trans         &kp NUMBER_4  &kp NUMBER_5  &kp N6  &trans     &trans
+&trans  &trans            &trans  &conda_create_env_p311  &trans  &trans                                                                &trans      &trans                  &kp BACKSPACE  &kp N1        &kp N2        &kp N3  &kp UNDER  &kp DE_UNDERSCORE
+&trans  &trans            &trans  &trans                  &trans                               &trans                           &trans  &trans      &trans  &trans  &trans                 &kp N0        &kp N0        &kp N0  &trans     &trans
             >;
         };
 
