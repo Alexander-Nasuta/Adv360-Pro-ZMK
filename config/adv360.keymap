@@ -14,7 +14,6 @@
 #include <dt-bindings/zmk/backlight.h>
 #include <dt-bindings/zmk/bt.h>
 #include <dt-bindings/zmk/keys.h>
-#include <dt-bindings/zmk/mouse.h>
 #include <dt-bindings/zmk/rgb.h>
 
 / {
@@ -159,6 +158,69 @@
             bindings = <&kp LS(ESCAPE) &kp N0 &kp I>;
             label = "NVIM_I_BOL";
         };
+
+        toggle_language: toggle_language {
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <0>;
+            bindings = <&tog 1 &kp LGUI>;
+            label = "TOGGLE_LANGUAGE";
+        };
+
+        macro_dont: macro_dont {
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <0>;
+            bindings = <&kp D &kp O &kp N &kp SQT &kp T>;
+            label = "MACRO_DONT";
+        };
+
+        macro_doesnt: macro_doesnt {
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <0>;
+            bindings = <&kp D &kp O &kp E &kp S &kp N &kp SQT &kp T>;
+            label = "MACRO_DOESNT";
+        };
+
+        macro_cant: macro_cant {
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <0>;
+            bindings = <&kp C &kp A &kp N &kp SQT &kp T>;
+            label = "MACRO_CANT";
+        };
+
+        macro_isnt: macro_isnt {
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <0>;
+            bindings = <&kp I &kp S &kp N &kp SQT &kp T>;
+            label = "MACRO_ISNT";
+        };
+
+        macro_im: macro_im {
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <0>;
+            bindings = <&kp LS(I) &kp SQT &kp M>;
+            label = "MACRO_IM";
+        };
+
+        macro_arent: macro_arent {
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <0>;
+            bindings = <&kp A &kp R &kp E &kp N &kp SQT &kp T>;
+            label = "MACRO_ARENT";
+        };
+
+        macro_well: macro_well {
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <0>;
+            bindings = <&kp W &kp E &kp SQT &kp L &kp L>;
+            label = "MACRO_WELL";
+        };
+
+        macro_lets: macro_lets {
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <0>;
+            bindings = <&kp L &kp E &kp T &kp SQT &kp S>;
+            label = "MACRO_LETS";
+        };
     };
 
     keymap {
@@ -166,11 +228,11 @@
 
         eng_us_layer {
             bindings = <
-&kp EQUAL  &kp N1    &kp N2  &kp N3    &kp N4     &kp N5  &tog 1                                                                                    &mo 5      &kp N6  &kp N7  &kp N8     &kp N9   &kp N0    &kp MINUS
-&kp TAB    &kp Q     &kp W   &kp E     &kp R      &kp T   &tmux_split_vertical                                                                      &none      &kp Y   &kp U   &kp I      &kp O    &kp P     &kp LEFT_BRACKET
-&kp ESC    &kp A     &kp S   &kp D     &kp F      &kp G   &tmux_split_horizontal  &kp LALT    &none             &none                &kp RIGHT_ALT  &none      &kp H   &kp J   &kp K      &kp L    &kp SEMI  &kp SQT
-&kp LSHFT  &kp Z     &kp X   &kp C     &kp V      &kp B                                       &tog 4            &mo 4                                          &kp N   &kp M   &kp COMMA  &kp DOT  &kp FSLH  &kp RSHFT
-&kp LCTRL  &kp LGUI  &mo 2   &kp LEFT  &kp RIGHT          &kp BSPC                &kp DELETE  &tmux_leader      &tmux_list_sessions  &kp ENTER      &kp SPACE          &kp UP  &kp DOWN   &mo 2    &kp RGUI  &kp RCTRL
+&kp EQUAL  &kp N1            &kp N2  &kp N3    &kp N4     &kp N5  &tog 1                                                                                    &mo 5      &kp N6  &kp N7          &kp N8     &kp N9   &kp N0    &kp MINUS
+&kp TAB    &kp Q             &kp W   &kp E     &kp R      &kp T   &tmux_split_vertical                                                                      &none      &kp Y   &kp U           &kp I      &kp O    &kp P     &kp LEFT_BRACKET
+&kp ESC    &kp A             &kp S   &kp D     &kp F      &kp G   &tmux_split_horizontal  &kp LALT    &mo 6             &mo 6                &kp RIGHT_ALT  &none      &kp H   &kp J           &kp K      &kp L    &kp SEMI  &kp SQT
+&kp LSHFT  &kp Z             &kp X   &kp C     &kp V      &kp B                                       &tog 4            &tog 4                                         &kp N   &kp M           &kp COMMA  &kp DOT  &kp FSLH  &kp RSHFT
+&kp LCTRL  &toggle_language  &mo 2   &kp LEFT  &kp RIGHT          &kp BSPC                &kp DELETE  &tmux_leader      &tmux_list_sessions  &kp ENTER      &kp SPACE          &kp DOWN_ARROW  &kp UP     &mo 2    &kp RGUI  &kp RCTRL
             >;
         };
 
@@ -186,21 +248,21 @@
 
         symbols_fn {
             bindings = <
-&kp LC(LEFT_ARROW)  &kp HOME   &none             &kp DOLLAR      &none              &none          &trans                                      &trans  &none         &none                 &kp N0                 &none            &kp END    &kp LC(RIGHT)
-&nvim_i_bol         &kp AT     &kp N0            &kp ASTRK       &kp SLASH          &kp BACKSLASH  &none                                       &none   &kp QUESTION  &kp MINUS             &kp PLUS               &kp DOLLAR       &kp CARET  &nvim_i_eol
-&trans              &kp PIPE   &kp AMPERSAND     &kp EXCL        &kp EQUAL          &kp HASH       &none   &trans  &trans      &trans  &trans  &none   &kp PERCENT   &kp LEFT_PARENTHESIS  &kp RIGHT_PARENTHESIS  &kp LEFT_BRACE   &kp COLON  &kp SEMICOLON
-&trans              &kp LT     &kp GREATER_THAN  &kp SQT         &kp DOUBLE_QUOTES  &kp GRAVE                      &trans      &trans                  &kp TILDE     &kp LEFT_BRACKET      &kp RIGHT_BRACKET      &kp RIGHT_BRACE  &kp UNDER  &trans
-&trans              &mkp MCLK  &trans            &kp LEFT_ARROW  &kp RIGHT_ARROW                   &trans  &trans  &trans      &trans  &trans  &trans                &kp UP_ARROW          &kp DOWN_ARROW         &trans           &mkp RCLK  &trans
+&kp HOME     &kp LC(LEFT)  &kp LC(RIGHT)     &kp DOLLAR          &none                &none          &trans                                                 &trans  &none         &none                 &kp N0                 &kp LC(LEFT)     &kp LC(RIGHT)  &kp END
+&nvim_i_bol  &kp AT        &kp N0            &kp ASTRK           &kp SLASH            &kp BACKSLASH  &none                                                  &none   &kp QUESTION  &kp MINUS             &kp PLUS               &kp DOLLAR       &kp CARET      &nvim_i_eol
+&trans       &kp PIPE      &kp AMPERSAND     &kp EXCL            &kp EQUAL            &kp HASH       &none              &trans  &trans      &trans  &trans  &none   &kp PERCENT   &kp LEFT_PARENTHESIS  &kp RIGHT_PARENTHESIS  &kp LEFT_BRACE   &kp COLON      &kp SEMICOLON
+&trans       &kp LT        &kp GREATER_THAN  &kp SQT             &kp DOUBLE_QUOTES    &kp GRAVE                                 &trans      &trans                  &kp TILDE     &kp LEFT_BRACKET      &kp RIGHT_BRACKET      &kp RIGHT_BRACE  &kp UNDER      &trans
+&trans       &kp HOME      &trans            &kp LC(LEFT_ARROW)  &kp LC(RIGHT_ARROW)                 &kp RC(BACKSPACE)  &trans  &trans      &trans  &trans  &trans                &kp DOWN_ARROW        &kp UP_ARROW           &trans           &kp END        &trans
             >;
         };
 
         GERMAN_SYMBOLS {
             bindings = <
-&kp LC(LEFT_ARROW)  &kp HOME          &trans               &kp DE_DOLLAR        &none                 &none             &trans                                      &trans  &none            &none                    &kp N0                    &trans              &kp END            &kp LC(RIGHT_ARROW)
-&nvim_i_bol         &kp DE_AT         &kp N0               &kp DE_ASTERISK      &kp DE_SLASH          &kp DE_BACKSLASH  &trans                                      &trans  &kp DE_QUESTION  &kp DE_MINUS             &kp DE_PLUS               &kp DE_DOLLAR       &kp DE_CARET       &nvim_i_eol
-&trans              &kp DE_PIPE       &kp DE_AMPERSAND     &kp DE_EXCLAMATION   &kp DE_EQUAL          &kp DE_HASH       &trans  &trans  &trans      &trans  &trans  &trans  &kp DE_PERCENT   &kp DE_LEFT_PARENTHESIS  &kp DE_RIGHT_PARENTHESIS  &kp DE_LEFT_BRACE   &kp DE_COLON       &kp DE_SEMICOLON
-&trans              &kp DE_LESS_THAN  &kp DE_GREATER_THAN  &kp DE_SINGLE_QUOTE  &kp DE_DOUBLE_QUOTES  &kp DE_GRAVE                      &trans      &trans                  &kp DE_TILDE     &kp DE_LEFT_BRACKET      &kp DE_RIGHT_BRACKET      &kp DE_RIGHT_BRACE  &kp DE_UNDERSCORE  &kp DE_EURO
-&trans              &mkp MCLK         &trans               &kp LEFT             &kp RIGHT                               &trans  &trans  &trans      &trans  &trans  &trans                   &kp UP                   &kp DOWN_ARROW            &trans              &mkp RCLK          &trans
+&kp HOME     &kp LC(LEFT_ARROW)  &kp LC(RIGHT)        &kp DE_DOLLAR        &none                 &none             &trans                                                 &trans  &none            &none                    &kp N0                    &kp LC(LEFT)        &kp LC(RIGHT)      &kp END
+&nvim_i_bol  &kp DE_AT           &kp N0               &kp DE_ASTERISK      &kp DE_SLASH          &kp DE_BACKSLASH  &trans                                                 &trans  &kp DE_QUESTION  &kp DE_MINUS             &kp DE_PLUS               &kp DE_DOLLAR       &kp DE_CARET       &nvim_i_eol
+&trans       &kp DE_PIPE         &kp DE_AMPERSAND     &kp DE_EXCLAMATION   &kp DE_EQUAL          &kp DE_HASH       &trans             &trans  &trans      &trans  &trans  &trans  &kp DE_PERCENT   &kp DE_LEFT_PARENTHESIS  &kp DE_RIGHT_PARENTHESIS  &kp DE_LEFT_BRACE   &kp DE_COLON       &kp DE_SEMICOLON
+&trans       &kp DE_LESS_THAN    &kp DE_GREATER_THAN  &kp DE_SINGLE_QUOTE  &kp DE_DOUBLE_QUOTES  &kp DE_GRAVE                                 &trans      &trans                  &kp DE_TILDE     &kp DE_LEFT_BRACKET      &kp DE_RIGHT_BRACKET      &kp DE_RIGHT_BRACE  &kp DE_UNDERSCORE  &kp DE_EURO
+&trans       &kp HOME            &trans               &kp LC(LEFT)         &kp LC(RIGHT)                           &kp RC(BACKSPACE)  &trans  &trans      &trans  &trans  &trans                   &kp UP                   &kp DOWN_ARROW            &trans              &kp END            &trans
             >;
         };
 
@@ -221,6 +283,16 @@
 &none  &none         &none         &none         &none         &none         &none        &none  &none            &bt BT_CLR   &none       &rgb_ug RGB_MEFS_CMD 5  &none  &none       &none       &none  &none  &none
 &none  &none         &none         &none         &macro_ver    &none                             &bootloader      &bootloader                                      &none  &none       &none       &none  &none  &none
 &none  &none         &none         &none         &none                       &none        &none  &none            &none        &bl BL_TOG  &rgb_ug RGB_TOG                &bl BL_INC  &bl BL_DEC  &none  &none  &none
+            >;
+        };
+
+        layer_6 {
+            bindings = <
+&trans  &trans        &trans       &trans         &trans  &trans  &trans                                      &trans  &trans  &trans  &trans     &trans  &trans  &trans
+&trans  &trans        &trans       &macro_doesnt  &trans  &trans  &trans                                      &trans  &trans  &trans  &macro_im  &trans  &trans  &trans
+&trans  &macro_arent  &macro_isnt  &macro_dont    &trans  &trans  &trans  &trans  &trans      &trans  &trans  &trans  &trans  &trans  &trans     &trans  &trans  &trans
+&trans  &trans        &trans       &macro_cant    &trans  &trans                  &trans      &trans                  &trans  &trans  &trans     &trans  &trans  &trans
+&trans  &trans        &trans       &trans         &trans          &trans  &trans  &trans      &trans  &trans  &trans          &trans  &trans     &trans  &trans  &trans
             >;
         };
     };
